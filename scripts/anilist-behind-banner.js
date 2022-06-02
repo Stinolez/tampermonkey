@@ -12,8 +12,12 @@
 (function() {
   'use strict';
 
-  const myInterval = setInterval(behindShows, 10000)
+  const delay = 5000 // 5s
+      , refresh = 60000 // 60s (if refresh is set to <=0, it won't refresh)
       , debug = 0;
+
+  // Setting first run with delay
+  const myTimeout = setTimeout(behindShows, delay);
 
   // Debug help function
   function debugOutput(msg) {
@@ -33,12 +37,16 @@
   // Function to show the behind shows as badge on homepage
   function behindShows() {
 
+    // Always put function start into console
+    console.log('User script (behind shows) run: ' + new Date().toISOString());
+
     // Remove previous badge
     removeElementsByClass('customBehind');
 
     // Get all behind shows and define style for the banner
     var shows = document.querySelectorAll('div.list-preview div.isBehind')
-      , css = 'position: absolute; background: #ffa319; font-weight: bold; padding: 4px 8px; right: 4px; top: 4px; color: #001b7c; font-size: 15px; border-radius: 50%;';
+      , css = 'position: absolute; background: #ffa319; font-weight: bold; padding: 4px 8px; right: 4px; top: 4px; color: #001b7c; font-size: 15px; border-radius: 50%;'
+      , total = 0;
 
     // Debug output
     debugOutput(shows);
@@ -58,6 +66,25 @@
       // Put the banner into the show
       ind.innerHTML += '<div class="customBehind" style="' + css + '">' + behind + '</div>';
 
+      // Adding to the total
+      total += Number(behind);
+      debugOutput(total);
+
+    }
+
+    // Getting the element for section header to put total behind
+    var header = document.querySelectorAll('div.list-preview div.isBehind')[0].closest('div.list-preview-wrap').querySelector('div.section-header h2');
+    debugOutput(header)
+
+    if (header.innerHTML.indexOf('behind') === -1) {
+      header.innerHTML += ' <span style="color:red;">(' + total + ' episodes behind)</span>';
+    } else {
+      header.innerHTML = header.innerHTML.replace(/[0-9]+/gm, total);
+    }
+
+    // Consecutive runs with refresh rate
+    if (refresh > 0) {
+      const myTimeout = setTimeout(behindShows, refresh);
     }
   }
 
