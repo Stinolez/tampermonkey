@@ -73,13 +73,17 @@
     }
 
     // Getting the element for section header to put total behind
-    var header = document.querySelectorAll('div.list-preview div.isBehind')[0].closest('div.list-preview-wrap').querySelector('div.section-header h2');
-    debugOutput(header)
+    try {
+      var header = document.querySelectorAll('div.list-preview div.isBehind')[0].closest('div.list-preview-wrap').querySelector('div.section-header h2');
+      debugOutput(header)
 
-    if (header.innerHTML.indexOf('behind') === -1) {
-      header.innerHTML += ' <span style="color:red;">(' + total + ' episodes behind)</span>';
-    } else {
-      header.innerHTML = header.innerHTML.replace(/[0-9]+/gm, total);
+      if (header.innerHTML.indexOf('behind') === -1) {
+        header.innerHTML += ' <span style="color:red;">(' + total + ' episodes behind)</span>';
+      } else {
+        header.innerHTML = header.innerHTML.replace(/[0-9]+/gm, total);
+      }
+    } catch(err) {
+      debugOutput(err);
     }
 
     // Consecutive runs with refresh rate
