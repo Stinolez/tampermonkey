@@ -63,8 +63,14 @@
       debugOutput(ind);
       debugOutput(behind);
 
+      // Create the banner
+      var banner = document.createElement('div');
+      banner.classList = 'customBehind';
+      banner.style = css;
+      banner.innerText = behind;
+
       // Put the banner into the show
-      ind.innerHTML += '<div class="customBehind" style="' + css + '">' + behind + '</div>';
+      ind.append(banner);
 
       // Adding to the total
       total += Number(behind);
