@@ -37,6 +37,9 @@
   // Function to show the behind shows as badge on homepage
   function behindShows() {
 
+    // Constants
+    const css = 'position: absolute; background: #ffa319; font-weight: bold; padding: 4px 8px; right: 4px; top: 4px; color: #001b7c; font-size: 15px; border-radius: 50%;';
+
     // Always put function start into console
     console.log('User script (behind shows) run: ' + new Date().toISOString());
 
@@ -44,27 +47,25 @@
     removeElementsByClass('customBehind');
 
     // Get all behind shows and define style for the banner
-    var shows = document.querySelectorAll('div.list-preview div.isBehind')
-      , css = 'position: absolute; background: #ffa319; font-weight: bold; padding: 4px 8px; right: 4px; top: 4px; color: #001b7c; font-size: 15px; border-radius: 50%;'
+    let shows = document.querySelectorAll('div.list-preview div.isBehind')
       , total = 0;
 
     // Debug output
     debugOutput(shows);
-    debugOutput(css);
 
     // Go through all shows
-    for (var j = 0; j < shows.length; j++) {
+    for (let j = 0; j < shows.length; j++) {
 
       // Get the individual show and how much behind you are
-      var ind = shows[j].closest('div.media-preview-card');
-      var behind = ind.querySelectorAll('div.info-header div')[0].innerText.split(' ')[0];
+      let ind = shows[j].closest('div.media-preview-card')
+        , behind = ind.querySelectorAll('div.info-header div')[0].innerText.split(' ')[0];
 
       // Debug output
       debugOutput(ind);
       debugOutput(behind);
 
       // Create the banner
-      var banner = document.createElement('div');
+      let banner = document.createElement('div');
       banner.classList = 'customBehind';
       banner.style = css;
       banner.innerText = behind;
@@ -80,13 +81,59 @@
 
     // Getting the element for section header to put total behind
     try {
-      var header = document.querySelectorAll('div.list-preview div.isBehind')[0].closest('div.list-preview-wrap').querySelector('div.section-header h2');
+      let header = document.querySelectorAll('div.list-preview div.isBehind')[0].closest('div.list-preview-wrap').querySelector('div.section-header h2');
       debugOutput(header)
 
       if (header.innerHTML.indexOf('behind') === -1) {
         header.innerHTML += ' <span style="color:red;">(' + total + ' episodes behind)</span>';
       } else {
         header.innerHTML = header.innerHTML.replace(/[0-9]+/gm, total);
+      }
+    } catch(err) {
+      debugOutput(err);
+    }
+
+    // Adding numbers to the "Anime in Progress" section
+    let xpath = "//h2[text()='Anime in Progress']"
+      , matchingElement = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+      , showList = matchingElement.parentElement.parentElement.querySelectorAll('div.list-preview div.media-preview-card')
+      , total2 = 0;
+
+    // Debug output
+    debugOutput(showList);
+
+    // Go through all shows
+    for (let j = 0; j < showList.length; j++) {
+
+      // Get the individual show and how much behind you are
+      let ind = showList[j]
+        , count = ind.querySelector('div.info > div').innerText.split(' ')[1].split('/');
+
+      // Debug output
+      debugOutput(ind);
+      debugOutput(count);
+
+      // Create the banner
+      let banner = document.createElement('div');
+      banner.classList = 'customBehind';
+      banner.style = css;
+      banner.innerText = (Number(count[1]) - Number(count[0]));
+
+      // Put the banner into the show
+      ind.append(banner);
+
+      // Adding to the total
+      total2 += (Number(count[1]) - Number(count[0]));
+      debugOutput(total2);
+
+    }
+
+    // Getting the element for section header to put total behind
+    try {
+      if (matchingElement.innerHTML.indexOf('behind') === -1) {
+        matchingElement.innerHTML += ' <span style="color:red;">(' + total2 + ' episodes behind)</span>';
+      } else {
+        matchingElement.innerHTML = matchingElement.innerHTML.replace(/[0-9]+/gm, total2);
       }
     } catch(err) {
       debugOutput(err);
