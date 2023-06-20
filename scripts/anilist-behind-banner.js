@@ -94,7 +94,7 @@
     }
 
     // Adding numbers to the "Anime in Progress" section
-    let xpath = "//h2[text()='Anime in Progress']"
+    let xpath = "//h2[text()[contains(., 'Anime in Progress')]]"
       , matchingElement = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
       , showList = matchingElement.parentElement.parentElement.querySelectorAll('div.list-preview div.media-preview-card')
       , total2 = 0;
