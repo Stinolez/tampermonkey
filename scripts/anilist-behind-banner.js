@@ -107,7 +107,8 @@
 
       // Get the individual show and how much behind you are
       let ind = showList[j]
-        , count = ind.querySelector('div.info > div').innerText.split(' ')[1].split('/');
+        , count = ind.querySelector('div.info > div').innerText.split(' ')[1].split('/')
+        , ep = (Number(count[1]) - Number(count[0]));
 
       // Debug output
       debugOutput(ind);
@@ -117,13 +118,13 @@
       let banner = document.createElement('div');
       banner.classList = 'customBehind';
       banner.style = css;
-      banner.innerText = (Number(count[1]) - Number(count[0]));
+      banner.innerText = (isNaN(ep) ? 'N/A' : ep);
 
       // Put the banner into the show
       ind.append(banner);
 
       // Adding to the total
-      total2 += (Number(count[1]) - Number(count[0]));
+      total2 += (isNaN(ep) ? 0 : ep);
       debugOutput(total2);
 
     }
