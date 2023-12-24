@@ -108,11 +108,22 @@
       // Get the individual show and how much behind you are
       let ind = showList[j]
         , count = ind.querySelector('div.info > div').innerText.split(' ')[1].split('/')
+        , behind = ind.querySelectorAll('div.info-header div')[0]
+        , countdown = ind.querySelectorAll('div.countdown')[0]
         , ep = (Number(count[1]) - Number(count[0]));
 
       // Debug output
       debugOutput(ind);
       debugOutput(count);
+      debugOutput(ep);
+      debugOutput(behind);
+
+      // Count behind if any
+      if (behind) {
+        ep = Number(behind.innerText.split(' ')[0]);
+      } else if (countdown) {
+        ep = 0;
+      }
 
       // Create the banner
       let banner = document.createElement('div');
