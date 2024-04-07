@@ -15,13 +15,13 @@
   const delay = 5000 // 5s
       , refresh = 60000 // 60s (if refresh is set to <=0, it won't refresh)
       , debug = 0
-      , highlight = [  'Maou no Ore ga Dorei Elf wo Yome ni Shitanda ga, Dou Medereba Ii?'
-                     , 'Ookami to Koushinryou: MERCHANT MEETS THE WISE WOLF'
-                     , 'Tonari no Youkai-san'
-                     , 'Yuru Camp△ SEASON 3'
-                     , 'Jii-san Baa-san Wakagaeru'
-                     , 'Lv2 Kara Cheat datta Moto Yuusha Kouho no Mattari Isekai Life'
-                     , 'Tensei Kizoku, Kantei Skill de Nariagaru'];
+      , highlights = [  'Maou no Ore ga Dorei Elf wo Yome ni Shitanda ga, Dou Medereba Ii?'
+                      , 'Ookami to Koushinryou: MERCHANT MEETS THE WISE WOLF'
+                      , 'Tonari no Youkai-san'
+                      , 'Yuru Camp△ SEASON 3'
+                      , 'Jii-san Baa-san Wakagaeru'
+                      , 'Lv2 Kara Cheat datta Moto Yuusha Kouho no Mattari Isekai Life'
+                      , 'Tensei Kizoku, Kantei Skill de Nariagaru'];
 
   // Setting first run with delay
   const myTimeout = setTimeout(behindShows, delay);
@@ -48,7 +48,7 @@
       // Get the individual show and how much behind you are
       let title = titles[i].innerText;
 
-      if(highlight.indexOf(title) != -1) {
+      if(highlights.indexOf(title) != -1) {
         titles[i].style.color = 'red';
       } else {
         titles[i].style.color = 'currentColor';
