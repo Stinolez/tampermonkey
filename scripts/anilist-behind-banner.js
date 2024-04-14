@@ -12,7 +12,7 @@
 (function() {
   'use strict';
 
-  const delay = 5000 // 5s
+  const delay = 3000 // 3s
       , refresh = 60000 // 60s (if refresh is set to <=0, it won't refresh)
       , debug = 0
       , highlights = [  'Maou no Ore ga Dorei Elf wo Yome ni Shitanda ga, Dou Medereba Ii?'
@@ -128,48 +128,51 @@
     // Adding numbers to the "Anime in Progress" section
     let xpath = "//h2[text()[contains(., 'Anime in Progress')]]"
       , matchingElement = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
-      , showList = matchingElement.parentElement.parentElement.querySelectorAll('div.list-preview div.media-preview-card')
       , total2 = 0;
 
-    // Debug output
-    debugOutput(showList);
-
-    // Go through all shows
-    for (let j = 0; j < showList.length; j++) {
-
-      // Get the individual show and how much behind you are
-      let ind = showList[j]
-        , count = ind.querySelector('div.info > div').innerText.split(' ')[1].split('/')
-        , behind = ind.querySelectorAll('div.info-header div')[0]
-        , countdown = ind.querySelectorAll('div.countdown')[0]
-        , ep = (Number(count[1]) - Number(count[0]));
+    if(matchingElement) {
+      let showList = matchingElement.parentElement.parentElement.querySelectorAll('div.list-preview div.media-preview-card');
 
       // Debug output
-      debugOutput(ind);
-      debugOutput(count);
-      debugOutput(ep);
-      debugOutput(behind);
+      debugOutput(showList);
 
-      // Count behind if any
-      if (behind) {
-        ep = Number(behind.innerText.split(' ')[0]);
-      } else if (countdown) {
-        ep = 0;
+      // Go through all shows
+      for (let j = 0; j < showList.length; j++) {
+
+        // Get the individual show and how much behind you are
+        let ind = showList[j]
+          , count = ind.querySelector('div.info > div').innerText.split(' ')[1].split('/')
+          , behind = ind.querySelectorAll('div.info-header div')[0]
+          , countdown = ind.querySelectorAll('div.countdown')[0]
+          , ep = (Number(count[1]) - Number(count[0]));
+
+        // Debug output
+        debugOutput(ind);
+        debugOutput(count);
+        debugOutput(ep);
+        debugOutput(behind);
+
+        // Count behind if any
+        if (behind) {
+          ep = Number(behind.innerText.split(' ')[0]);
+        } else if (countdown) {
+          ep = 0;
+        }
+
+        // Create the banner
+        let banner = document.createElement('div');
+        banner.classList = 'customBehind';
+        banner.style = css;
+        banner.innerText = (isNaN(ep) ? 'N/A' : ep);
+
+        // Put the banner into the show
+        ind.append(banner);
+
+        // Adding to the total
+        total2 += (isNaN(ep) ? 0 : ep);
+        debugOutput(total2);
+
       }
-
-      // Create the banner
-      let banner = document.createElement('div');
-      banner.classList = 'customBehind';
-      banner.style = css;
-      banner.innerText = (isNaN(ep) ? 'N/A' : ep);
-
-      // Put the banner into the show
-      ind.append(banner);
-
-      // Adding to the total
-      total2 += (isNaN(ep) ? 0 : ep);
-      debugOutput(total2);
-
     }
 
     // Getting the element for section header to put total behind
