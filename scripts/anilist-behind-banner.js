@@ -18,7 +18,12 @@
   const delay = 3000 // 3s
       , refresh = 60000 // 60s (if refresh is set to <=0, it won't refresh)
       , debug = 0
-      , highlights = ['Ookami to Koushinryou: MERCHANT MEETS THE WISE WOLF', 'Elf-san wa Yaserarenai.', 'Madougushi Dahlia wa Utsumukanai', 'Shoushimin Series'];
+      , highlights = [  'Ookami to Koushinryou: MERCHANT MEETS THE WISE WOLF'
+                      , 'Elf-san wa Yaserarenai.'
+                      , 'Madougushi Dahlia wa Utsumukanai'
+                      , 'Shoushimin Series'
+                      , 'Shinmai Ossan Bouken-sha, Saikyou Party ni Shinu Hodo Kitaerarete Muteki ni Naru.'
+                     ];
 
   // Setting first run with delay
   const myTimeout = setTimeout(behindShows, delay);
