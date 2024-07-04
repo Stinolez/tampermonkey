@@ -8,6 +8,7 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=anilist.co
 // @grant        none
 // @downloadURL  https://raw.githubusercontent.com/Stinolez/tampermonkey/main/scripts/anilist-behind-banner.js
+// @updateURL    https://raw.githubusercontent.com/Stinolez/tampermonkey/main/scripts/anilist-behind-banner.js
 // @license GPL-3.0
 // ==/UserScript==
 
