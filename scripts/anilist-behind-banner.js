@@ -1,12 +1,14 @@
 // ==UserScript==
 // @name         Anilist - behind banner
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      1.0.000
 // @description  Get banner to each show you are behind on
 // @author       Stinolez
 // @match        https://anilist.co/home
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=anilist.co
 // @grant        none
+// @downloadURL  https://raw.githubusercontent.com/Stinolez/tampermonkey/main/scripts/anilist-behind-banner.js
+// @license GPL-3.0
 // ==/UserScript==
 
 (function() {
