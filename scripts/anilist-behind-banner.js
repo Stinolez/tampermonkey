@@ -40,7 +40,7 @@
   function highlight() {
 
     // Constants
-    const css = 'position: absolute; background: #ffa319; font-weight: bold; padding: 4px 8px; left: 4px; top: 4px; color: #001b7c; font-size: 15px; border-radius: 50%;';
+    const css = 'position: absolute; background: #36cf7b; font-weight: bold; padding: 4px 8px; left: 4px; top: 4px; color: #001b7c; font-size: 15px; border-radius: 50%;';
 
     // Remove previous badge
     removeElementsByClass('extraFlag');
@@ -58,15 +58,15 @@
       let title = titles[i].innerText;
 
       if(highlights.indexOf(title) != -1) {
-        
+
         // Create the banner
         let banner = document.createElement('div');
         banner.classList = 'extraFlag';
         banner.style = css;
         banner.innerText = 'D';
-  
+
         // Put the banner into the show
-        title.parentNode.parentNode.append(banner);
+        titles[i].parentNode.parentNode.append(banner);
 
       }
 
