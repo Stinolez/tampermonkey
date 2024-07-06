@@ -23,6 +23,7 @@
                       , 'Madougushi Dahlia wa Utsumukanai'
                       , 'Shoushimin Series'
                       , 'Shinmai Ossan Bouken-sha, Saikyou Party ni Shinu Hodo Kitaerarete Muteki ni Naru.'
+                      , 'Maou Gun Saikyou no Majutsushi wa Ningen datta'
                      ];
 
   // Setting first run with delay
