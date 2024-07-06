@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anilist - behind banner
 // @namespace    http://tampermonkey.net/
-// @version      24.06.04.1121
+// @version      24.06.07.1916
 // @description  Get banner to each show you are behind on
 // @author       Stinolez
 // @match        https://anilist.co/home
@@ -38,6 +38,12 @@
   // highlight function
   function highlight() {
 
+    // Constants
+    const css = 'position: absolute; background: #ffa319; font-weight: bold; padding: 4px 8px; left: 4px; top: 4px; color: #001b7c; font-size: 15px; border-radius: 50%;';
+
+    // Remove previous badge
+    removeElementsByClass('extraFlag');
+
     // Get List of titles
     let titles = document.querySelectorAll('div.list-preview div.media-preview-card a.title');
 
@@ -51,9 +57,16 @@
       let title = titles[i].innerText;
 
       if(highlights.indexOf(title) != -1) {
-        titles[i].style.color = 'red';
-      } else {
-        titles[i].style.color = 'currentColor';
+        
+        // Create the banner
+        let banner = document.createElement('div');
+        banner.classList = 'extraFlag';
+        banner.style = css;
+        banner.innerText = 'D';
+  
+        // Put the banner into the show
+        title.parentNode.parentNode.append(banner);
+
       }
 
     }
