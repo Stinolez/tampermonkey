@@ -18,12 +18,17 @@
   const delay = 3000 // 3s
       , refresh = 60000 // 60s (if refresh is set to <=0, it won't refresh)
       , debug = 0
-      , highlights = [  'Ookami to Koushinryou: MERCHANT MEETS THE WISE WOLF'
-                      , 'Elf-san wa Yaserarenai.'
-                      , 'Madougushi Dahlia wa Utsumukanai'
-                      , 'Shoushimin Series'
-                      , 'Shinmai Ossan Bouken-sha, Saikyou Party ni Shinu Hodo Kitaerarete Muteki ni Naru.'
-                      , 'Maou Gun Saikyou no Majutsushi wa Ningen datta'
+      , highlights = [  'Honey Lemon Soda'
+                      , 'Unnamed Memory Season 2'
+                      , 'Tasokare Hotel'
+                      , 'Magic Maker: How to Make Magic in Another World'
+                      , 'Ameku M.D.: Doctor Detective'
+                      , 'I May Be a Guild Receptionist, but I’ll Solo Any Boss to Clock Out on Time'
+                      , 'Medalist'
+                      , 'Possibly the Greatest Alchemist of All Time'
+                      , 'Flower and Asura'
+                      , 'Welcome to Japan, Ms. Elf!'
+                      , 'I Want to Escape from Princess Lessons'
                      ];
 
   // Setting first run with delay
