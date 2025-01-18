@@ -29,6 +29,7 @@
                       , 'Flower and Asura'
                       , 'Welcome to Japan, Ms. Elf!'
                       , 'I Want to Escape from Princess Lessons'
+                      , 'The Apothecary Diaries Season 2'
                      ];
 
   // Setting first run with delay
