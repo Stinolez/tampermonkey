@@ -30,6 +30,7 @@
                       , 'Welcome to Japan, Ms. Elf!'
                       , 'I Want to Escape from Princess Lessons'
                       , 'The Apothecary Diaries Season 2'
+                      , 'SAKAMOTO DAYS'
                      ];
 
   // Setting first run with delay
