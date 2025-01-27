@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anilist - behind banner
 // @namespace    http://tampermonkey.net/
-// @version      25.01.18.2123
+// @version      25.01.27.2044
 // @description  Get banner to each show you are behind on
 // @author       Stinolez
 // @match        https://anilist.co/home
@@ -18,17 +18,13 @@
   const delay = 3000 // 3s
       , refresh = 60000 // 60s (if refresh is set to <=0, it won't refresh)
       , debug = 0
-      , highlights = [  'Honey Lemon Soda'
-                      , 'Unnamed Memory Season 2'
-                      , 'Tasokare Hotel'
+      , highlights = [  'Tasokare Hotel'
                       , 'Magic Maker: How to Make Magic in Another World'
                       , 'Ameku M.D.: Doctor Detective'
                       , 'I May Be a Guild Receptionist, but I’ll Solo Any Boss to Clock Out on Time'
                       , 'Medalist'
                       , 'Possibly the Greatest Alchemist of All Time'
-                      , 'Flower and Asura'
                       , 'Welcome to Japan, Ms. Elf!'
-                      , 'I Want to Escape from Princess Lessons'
                       , 'The Apothecary Diaries Season 2'
                       , 'SAKAMOTO DAYS'
                      ];
@@ -64,7 +60,7 @@
       // Get the individual show and how much behind you are
       let title = titles[i].innerText;
 
-      if(highlights.indexOf(title) != -1) {
+      if(highlights.map(item => item.toUpperCase()).indexOf(title.toUpperCase()) !== -1) {
 
         // Create the banner
         let banner = document.createElement('div');
