@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anilist - behind banner
 // @namespace    http://tampermonkey.net/
-// @version      25.01.27.2044
+// @version      25.01.29.2338
 // @description  Get banner to each show you are behind on
 // @author       Stinolez
 // @match        https://anilist.co/home
@@ -24,7 +24,7 @@
                       , 'I May Be a Guild Receptionist, but I’ll Solo Any Boss to Clock Out on Time'
                       , 'Medalist'
                       , 'Possibly the Greatest Alchemist of All Time'
-                      , 'Welcome to Japan, Ms. Elf!'
+                      , 'My Happy Marriage Season 2'
                       , 'The Apothecary Diaries Season 2'
                       , 'SAKAMOTO DAYS'
                      ];
