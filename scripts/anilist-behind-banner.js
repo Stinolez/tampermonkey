@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anilist - behind banner
 // @namespace    http://tampermonkey.net/
-// @version      25.01.29.2338
+// @version      25.04.07.2324
 // @description  Get banner to each show you are behind on
 // @author       Stinolez
 // @match        https://anilist.co/home
@@ -18,15 +18,16 @@
   const delay = 3000 // 3s
       , refresh = 60000 // 60s (if refresh is set to <=0, it won't refresh)
       , debug = 0
-      , highlights = [  'Tasokare Hotel'
-                      , 'Magic Maker: How to Make Magic in Another World'
-                      , 'Ameku M.D.: Doctor Detective'
-                      , 'I May Be a Guild Receptionist, but I’ll Solo Any Boss to Clock Out on Time'
-                      , 'Medalist'
-                      , 'Possibly the Greatest Alchemist of All Time'
+      , highlights = [  'From Old Country Bumpkin to Master Swordsman'
+                      , 'KOWLOON GENERIC ROMANCE'
+                      , 'Lazarus'
                       , 'My Happy Marriage Season 2'
                       , 'The Apothecary Diaries Season 2'
-                      , 'SAKAMOTO DAYS'
+                      , 'The Beginning After the End'
+                      , 'The Brilliant Healer\'s New Life in the Shadows'
+                      , 'The Too-Perfect Saint: Tossed Aside by My Fiancé and Sold to Another Kingdom'
+                      , 'The Unaware Atelier Meister'
+                      , 'WITCH WATCH'
                      ];
 
   // Setting first run with delay
