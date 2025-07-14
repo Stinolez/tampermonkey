@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anilist - behind banner
 // @namespace    http://tampermonkey.net/
-// @version      25.04.07.2324
+// @version      25.07.14.1841
 // @description  Get banner to each show you are behind on
 // @author       Stinolez
 // @match        https://anilist.co/home
@@ -18,16 +18,15 @@
   const delay = 3000 // 3s
       , refresh = 60000 // 60s (if refresh is set to <=0, it won't refresh)
       , debug = 0
-      , highlights = [  'From Old Country Bumpkin to Master Swordsman'
-                      , 'KOWLOON GENERIC ROMANCE'
-                      , 'Lazarus'
-                      , 'My Happy Marriage Season 2'
-                      , 'The Apothecary Diaries Season 2'
-                      , 'The Beginning After the End'
-                      , 'The Brilliant Healer\'s New Life in the Shadows'
-                      , 'The Too-Perfect Saint: Tossed Aside by My Fiancé and Sold to Another Kingdom'
-                      , 'The Unaware Atelier Meister'
-                      , 'WITCH WATCH'
+      , highlights = [  "Detectives These Days Are Crazy!"
+                      , "Welcome to the Outcast's Restaurant!"
+                      , "Solo Camping for Two"
+                      , "The Water Magician"
+                      , "Secrets of the Silent Witch"
+                      , "Betrothed to My Sister's Ex"
+                      , "Lord of Mysteries"
+                      , "Scooped Up by an S-Rank Adventurer!"
+                      , "SAKAMOTO DAYS Part 2"
                      ];
 
   // Setting first run with delay
