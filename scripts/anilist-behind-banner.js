@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anilist - behind banner
 // @namespace    http://tampermonkey.net/
-// @version      25.07.14.1841
+// @version      25.10.12.0011
 // @description  Get banner to each show you are behind on
 // @author       Stinolez
 // @match        https://anilist.co/home
@@ -18,15 +18,15 @@
   const delay = 3000 // 3s
       , refresh = 60000 // 60s (if refresh is set to <=0, it won't refresh)
       , debug = 0
-      , highlights = [  "Detectives These Days Are Crazy!"
-                      , "Welcome to the Outcast's Restaurant!"
+      , highlights = [  "Dad is a Hero, Mom is a Spirit, I'm a Reincarnator"
+                      , "A Gatherer's Adventure in Isekai"
+                      , "Hero Without a Class: Who Even Needs Skills?!"
+                      , "Let’s Play"
+                      , "My Awkward Senpai"
                       , "Solo Camping for Two"
-                      , "The Water Magician"
-                      , "Secrets of the Silent Witch"
-                      , "Betrothed to My Sister's Ex"
-                      , "Lord of Mysteries"
-                      , "Scooped Up by an S-Rank Adventurer!"
-                      , "SAKAMOTO DAYS Part 2"
+                      , "Pass the Monster Meat, Milady!"
+                      , "SPY x FAMILY Season 3"
+                      , "Rascal Does Not Dream of Bunny Girl Senpai"
                      ];
 
   // Setting first run with delay
