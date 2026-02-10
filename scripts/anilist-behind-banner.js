@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anilist - behind banner
 // @namespace    http://tampermonkey.net/
-// @version      25.10.12.0011
+// @version      26.02.10.0001
 // @description  Get banner to each show you are behind on
 // @author       Stinolez
 // @match        https://anilist.co/home
@@ -18,15 +18,16 @@
   const delay = 3000 // 3s
       , refresh = 60000 // 60s (if refresh is set to <=0, it won't refresh)
       , debug = 0
-      , highlights = [  "Dad is a Hero, Mom is a Spirit, I'm a Reincarnator"
-                      , "A Gatherer's Adventure in Isekai"
-                      , "Hero Without a Class: Who Even Needs Skills?!"
-                      , "Let’s Play"
-                      , "My Awkward Senpai"
-                      , "Solo Camping for Two"
-                      , "Pass the Monster Meat, Milady!"
-                      , "SPY x FAMILY Season 3"
-                      , "Rascal Does Not Dream of Bunny Girl Senpai"
+      , highlights = [  "Easygoing Territory Defense by the Optimistic Lord"
+                      , "The Holy Grail of Eris"
+                      , "Champignon Witch"
+                      , "Frieren: Beyond Journey’s End Season 2"
+                      , "Medalist Season 2"
+                      , "In the Clear Moonlit Dusk"
+                      , "Kunon the Sorcerer Can See"
+                      , "The Villainess Is Adored by the Prince of the Neighbor Kingdom"
+                      , "Journal with Witch"
+                      , "Wash It All Away"
                      ];
 
   // Setting first run with delay
