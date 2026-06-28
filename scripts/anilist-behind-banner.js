@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anilist - behind banner
 // @namespace    http://tampermonkey.net/
-// @version      26.06.05.0001
+// @version      26.06.28.0001
 // @description  Get banner to each show you are behind on
 // @author       Stinolez
 // @match        https://anilist.co/home
@@ -19,11 +19,9 @@
       , refresh = 60000 // 60s (if refresh is set to <=0, it won't refresh)
       , debug = 0
       , highlights = [  "Ascendance of a Bookworm: Adopted Daughter of an Archduke"
-                      , "Agents of the Four Seasons: Dance of Spring"
-                      , "Witch Hat Atelier"
                       , "MARRIAGETOXIN"
-                      , "The Beginning After the End Season 2"
-                      , "The Warrior Princess and the Barbaric King"
+                      , "The Cat and the Dragon"
+                      , "Lord of Mysteries Specials"
                      ];
 
   // Setting first run with delay
