@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anilist - behind banner
 // @namespace    http://tampermonkey.net/
-// @version      26.06.28.0001
+// @version      26.07.02.0001
 // @description  Get banner to each show you are behind on
 // @author       Stinolez
 // @match        https://anilist.co/home
@@ -19,9 +19,9 @@
       , refresh = 60000 // 60s (if refresh is set to <=0, it won't refresh)
       , debug = 0
       , highlights = [  "Ascendance of a Bookworm: Adopted Daughter of an Archduke"
-                      , "MARRIAGETOXIN"
                       , "The Cat and the Dragon"
-                      , "Lord of Mysteries Specials"
+                      , "The Oblivious Saint Can't Contain Her Power"
+                      , "The World Is Dancing"
                      ];
 
   // Setting first run with delay
