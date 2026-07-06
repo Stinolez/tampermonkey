@@ -23,6 +23,8 @@
                       , "The Oblivious Saint Can't Contain Her Power"
                       , "The World Is Dancing"
                       , "The Duke’s Son Claims He Won’t Love Me Yet Showers Me with Adoration"
+                      , "Jaadugar: A Witch in Mongolia"
+                      , "A Livid Lady’s Guide to Getting Even: How I Crushed My Homeland with My Mighty Grimoires"
                      ];
 
   // Setting first run with delay
