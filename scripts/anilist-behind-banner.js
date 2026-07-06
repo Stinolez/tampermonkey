@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anilist - behind banner
 // @namespace    http://tampermonkey.net/
-// @version      26.07.06.0001
+// @version      26.07.06.0002
 // @description  Get banner to each show you are behind on
 // @author       Stinolez
 // @match        https://anilist.co/home
