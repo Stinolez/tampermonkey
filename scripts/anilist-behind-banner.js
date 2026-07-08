@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anilist - behind banner
 // @namespace    http://tampermonkey.net/
-// @version      26.07.08.0001
+// @version      26.07.08.0002
 // @description  Get banner to each show you are behind on
 // @author       Stinolez
 // @match        https://anilist.co/home
@@ -27,6 +27,7 @@
                       , "A Livid Lady’s Guide to Getting Even: How I Crushed My Homeland with My Mighty Grimoires"
                       , "From Old Country Bumpkin to Master Swordsman II"
                       , "Saga of Tanya the Evil Season 2"
+                      , "Victoria of Many Faces"
                      ];
 
   // Setting first run with delay
