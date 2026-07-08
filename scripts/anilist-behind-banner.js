@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anilist - behind banner
 // @namespace    http://tampermonkey.net/
-// @version      26.07.06.0002
+// @version      26.07.08.0001
 // @description  Get banner to each show you are behind on
 // @author       Stinolez
 // @match        https://anilist.co/home
@@ -25,6 +25,8 @@
                       , "The Duke’s Son Claims He Won’t Love Me Yet Showers Me with Adoration"
                       , "Jaadugar: A Witch in Mongolia"
                       , "A Livid Lady’s Guide to Getting Even: How I Crushed My Homeland with My Mighty Grimoires"
+                      , "From Old Country Bumpkin to Master Swordsman II"
+                      , "Saga of Tanya the Evil Season 2"
                      ];
 
   // Setting first run with delay
