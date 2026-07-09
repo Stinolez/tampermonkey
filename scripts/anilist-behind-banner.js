@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anilist - behind banner
 // @namespace    http://tampermonkey.net/
-// @version      26.07.08.0002
+// @version      26.07.09.0001
 // @description  Get banner to each show you are behind on
 // @author       Stinolez
 // @match        https://anilist.co/home
@@ -28,6 +28,8 @@
                       , "From Old Country Bumpkin to Master Swordsman II"
                       , "Saga of Tanya the Evil Season 2"
                       , "Victoria of Many Faces"
+                      , "Smoking Behind the Supermarket with You"
+                      , "Love Unseen Beneath the Clear Night Sky"
                      ];
 
   // Setting first run with delay
