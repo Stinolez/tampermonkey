@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anilist - behind banner
 // @namespace    http://tampermonkey.net/
-// @version      26.10.07.0001
+// @version      26.10.07.0003
 // @description  Get banner to each show you are behind on
 // @author       Stinolez
 // @match        https://anilist.co/home
@@ -18,6 +18,10 @@
   const delay = 3000 // 3s
       , refresh = 60000 // 60s (if refresh is set to <=0, it won't refresh)
       , debug = 0
+      , tt_behind = 'tt-behind'
+      , tt_number = 'tt-number'
+      , tt_highlight = 'tt-highlight'
+      , highlight_flag = 'D'
       , highlights = [  "Saga of Tanya the Evil Season 2"
                       , "The Apothecary Diaries Season 3"
                       , "Romelia War Chronicle"
@@ -67,7 +71,7 @@
         let banner = document.createElement('div');
         banner.classList = 'extraFlag';
         banner.style = css;
-        banner.innerText = 'D';
+        banner.innerText = highlight_flag;
 
         // Put the banner into the show
         titles[i].parentNode.parentNode.append(banner);
@@ -100,7 +104,8 @@
 
     // Get all behind shows and define style for the banner
     let shows = document.querySelectorAll('div.list-preview div.isBehind')
-      , total = 0;
+      , total = 0
+      , total_extra = 0;
 
     // Debug output
     debugOutput(shows);
@@ -110,10 +115,12 @@
 
       // Get the individual show and how much behind you are
       let ind = shows[j].closest('div.media-preview-card')
+        , title = ind.querySelectorAll('a.title')[0].innerText
         , behind = ind.querySelectorAll('div.info-header div')[0].innerText.split(' ')[0];
 
       // Debug output
       debugOutput(ind);
+      debugOutput(title);
       debugOutput(behind);
 
       // Create the banner
@@ -129,17 +136,28 @@
       total += Number(behind);
       debugOutput(total);
 
+      // Adding to the total extra
+      if(highlights.map(item => item.toUpperCase()).indexOf(title.toUpperCase()) !== -1) {
+        total_extra += Number(behind);
+      }
+
     }
 
     // Getting the element for section header to put total behind
     try {
-      let header = document.querySelectorAll('div.list-preview div.isBehind')[0].closest('div.list-preview-wrap').querySelector('div.section-header h2');
+      let header = document.querySelectorAll('div.list-preview div.isBehind')[0].closest('div.list-preview-wrap').querySelector('div.section-header h2')
+        , tt = header.querySelectorAll('span.' + tt_behind);
       debugOutput(header)
 
-      if (header.innerHTML.indexOf('behind') === -1) {
-        header.innerHTML += ' <span style="color:red;">(' + total + ' episodes behind)</span>';
+      if (tt.length === 0) {
+        header.innerHTML += '<span class="' + tt_behind + '" style="color:red;padding-left:8px;">'
+                          + '(<span class="' + tt_highlight + '">' + total_extra + '</span> of '
+                          + '<span class="' + tt_number + '">' + total + '</span> total episodes behind)</span>';
       } else {
-        header.innerHTML = header.innerHTML.replace(/[0-9]+/gm, total);
+        let ttn = tt[0].querySelector('span.' + tt_number)
+          , tth = tt[0].querySelector('span.' + tt_highlight);
+        ttn.innerHTML = total;
+        tth.innerHTML = total_extra;
       }
     } catch(err) {
       debugOutput(err);
@@ -148,7 +166,8 @@
     // Adding numbers to the "Anime in Progress" section
     let xpath = "//h2[text()[contains(., 'Anime in Progress')]]"
       , matchingElement = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
-      , total2 = 0;
+      , total2 = 0
+      , total2_extra = 0;
 
     if(matchingElement) {
       let showList = matchingElement.parentElement.parentElement.querySelectorAll('div.list-preview div.media-preview-card');
@@ -161,6 +180,7 @@
 
         // Get the individual show and how much behind you are
         let ind = showList[j]
+          , title = ind.querySelectorAll('a.title')[0].innerText
           , count = ind.querySelector('div.info > div').innerText.split(' ')[1].split('/')
           , behind = ind.querySelectorAll('div.info-header div')[0]
           , countdown = ind.querySelectorAll('div.countdown')[0]
@@ -168,6 +188,7 @@
 
         // Debug output
         debugOutput(ind);
+        debugOutput(title);
         debugOutput(count);
         debugOutput(ep);
         debugOutput(behind);
@@ -192,15 +213,25 @@
         total2 += (isNaN(ep) ? 0 : ep);
         debugOutput(total2);
 
+        // Adding to the total extra
+        if(highlights.map(item => item.toUpperCase()).indexOf(title.toUpperCase()) !== -1) {
+          total2_extra += (isNaN(ep) ? 0 : ep);
+        }
+
       }
     }
 
-    // Getting the element for section header to put total behind
     try {
-      if (matchingElement.innerHTML.indexOf('behind') === -1) {
-        matchingElement.innerHTML += ' <span style="color:red;">(' + total2 + ' episodes behind)</span>';
+      let tt = matchingElement.querySelectorAll('span.' + tt_behind);
+      if (tt.length === 0) {
+        matchingElement.innerHTML += '<span class="' + tt_behind + '" style="color:red;padding-left:8px;">'
+                                   + '(<span class="' + tt_highlight + '">' + total2_extra + '</span> of '
+                                   + '<span class="' + tt_number + '">' + total2 + '</span> total episodes behind)</span>';
       } else {
-        matchingElement.innerHTML = matchingElement.innerHTML.replace(/[0-9]+/gm, total2);
+        let ttn = tt[0].querySelector('span.' + tt_number)
+          , tth = tt[0].querySelector('span.' + tt_highlight);
+        ttn.innerHTML = total2;
+        tth.innerHTML = total2_extra;
       }
     } catch(err) {
       debugOutput(err);
