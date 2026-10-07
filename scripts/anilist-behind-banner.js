@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Anilist - behind banner
 // @namespace    http://tampermonkey.net/
-// @version      26.07.09.0001
+// @version      26.10.07.0001
 // @description  Get banner to each show you are behind on
 // @author       Stinolez
 // @match        https://anilist.co/home
@@ -18,18 +18,16 @@
   const delay = 3000 // 3s
       , refresh = 60000 // 60s (if refresh is set to <=0, it won't refresh)
       , debug = 0
-      , highlights = [  "Ascendance of a Bookworm: Adopted Daughter of an Archduke"
-                      , "The Cat and the Dragon"
-                      , "The Oblivious Saint Can't Contain Her Power"
-                      , "The World Is Dancing"
-                      , "The Duke’s Son Claims He Won’t Love Me Yet Showers Me with Adoration"
-                      , "Jaadugar: A Witch in Mongolia"
-                      , "A Livid Lady’s Guide to Getting Even: How I Crushed My Homeland with My Mighty Grimoires"
-                      , "From Old Country Bumpkin to Master Swordsman II"
-                      , "Saga of Tanya the Evil Season 2"
-                      , "Victoria of Many Faces"
-                      , "Smoking Behind the Supermarket with You"
-                      , "Love Unseen Beneath the Clear Night Sky"
+      , highlights = [  "Saga of Tanya the Evil Season 2"
+                      , "The Apothecary Diaries Season 3"
+                      , "Romelia War Chronicle"
+                      , "A Tale of the Secret Saint"
+                      , "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3"
+                      , "Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé"
+                      , "Overgeared"
+                      , "Hello, I am a Witch and my Crush Wants me to Make a Love Potion!"
+                      , "PSYREN"
+                      , "The World's Strongest Witch"
                      ];
 
   // Setting first run with delay
